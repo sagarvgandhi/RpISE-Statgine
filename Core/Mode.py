@@ -10,8 +10,8 @@
     
     def findMode(l):
       l1=[findFreq(list,v) for v in l]   #A list with tuple elements gets created
-                                         #The first elements of each tuple contains the nos.
-                                         #The second elements of each tuple contains the corresponding frequencies
+                                         #The first element of each tuple contains the nos.
+                                         #The second element of each tuple contains the corresponding frequencies
      
       a=l1[0][1]         #'a' is initialised with first tuple element from l1
       c=[]
