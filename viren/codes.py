@@ -64,7 +64,7 @@
       
       #PROGRAM FOR RANGE
       
-       def findMax(l):    #algo to find the greatest no. in a list
+   def findMax(l):    #algo to find the greatest no. in a list
       max=l[0]
       for i in l:
         if i>max:
@@ -80,6 +80,16 @@
     
     def findRange(l):
       return findMax(list)-findMin(list)
+    
+    
+    #PROGRAM FOR FREQUENCY
+    
+    def findFreq(l,x):    #the list along with a no. whose freq we wish to find in the list are passed as the two arguments
+      freq=0
+      for i in l:
+        if i==x:
+          freq=freq+1     #freq counter is incremented every time a match is found
+      return x,freq       #Returns the no. with it's corresponding freq
       
       
       
