@@ -1,0 +1,98 @@
+class PiggyBank:
+    def __init__ (self):
+        self.balance=0
+        self.lt=0
+        self.t=0                          #'t' is used as a counter in the code to keep track of previous transactions
+        self.last=[]
+    def deposit(self,amount):
+        self.balance=self.balance+amount
+        self.lt=amount
+        if self.t<10:                            #algo to save the first 10 transactions
+
+            self.last.append(self.lt)
+        else:
+  
+            for k in range(9):                   #algo to save just the last 10 transactions and remove previous ones
+                self.last[k]=self.last[k+1]
+            self.last[9]=self.lt
+        self.t=self.t+1
+
+    def withdraw(self,amount):
+        if self.balance>=amount:
+            self.balance= self.balance-amount
+            self.lt=-amount
+            if self.t<10:                        #algo to save the first 10 transactions
+
+                self.last.append(self.lt)
+            else:
+  
+                for k in range(9):               #algo to save just the last 10 transactions and remove previous ones
+                    self.last[k]=self.last[k+1]
+                    self.last[9]=self.lt                 
+            self.t=self.t+1
+        else:
+            print("Insufficient balance")
+    def statement(self):
+        print("balance =",self.balance)
+        print("lt=",self.lt)
+    def last10trans(self):
+         
+        if self.t<10:
+            print("no of total transactions:",self.t)
+  
+            print(("list of last %d transactions:")%(self.t),self.last)
+            print("\n")
+        else:
+            print("no of total transactions:",self.t)
+
+            print("list of last 10 transactions:",self.last)
+            print("\n")
+        
+pg1=PiggyBank()
+i=0
+while(i<1):
+    print("Welcome to OO PiggyBank")
+    print("Enter 1 to deposit")
+    print("Enter 2 to withdraw")
+    print("Enter 3 to check balance")
+    print("Enter 4 to display last 10 transactions")
+    print("Enter 5 to quit")
+    x=int(input())
+
+    if x==1:
+        v1=int(input("please enter value to deposit"))
+        while(i<1):
+            if(v1<0):
+                print("invalid input enter a positive value")
+                v1=int(input("please enter value to deposit"))
+                print("\n")
+            else:
+                break
+
+        pg1.deposit(v1)
+        pg1.statement()
+        print("\n")
+    elif x==2:
+        v2=int(input("please enter value to withdraw"))
+        while(i<1):
+            if(v2<0):
+                print("invalid input enter a positive value")
+                v2=int(input("please enter value to withdraw"))
+                print("\n")
+            else:
+                break
+
+
+        pg1.withdraw(v2)
+        pg1.statement()
+        print("\n")
+
+    elif x==3:
+        pg1.statement()
+        print("\n")
+    elif x==4:
+        pg1.last10trans()
+    elif x==5:
+        break
+    else:
+        print("invalid input")
