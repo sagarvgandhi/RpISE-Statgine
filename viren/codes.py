@@ -60,3 +60,9 @@
       else:                #if the list is odd
         b=len(l)//2
         return l[b]        #return the middle element
+      
+      
+      #PROGRAM FOR RANGE
+      
+      
+      
